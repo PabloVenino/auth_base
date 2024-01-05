@@ -4,3 +4,6 @@
 */.vs
 API/AguiaTechBase.API/.vs
 *bin
+*.csproj
+API/AguiaTechBase.API/AuthBase/AuthBase.csproj.user
+*.http
