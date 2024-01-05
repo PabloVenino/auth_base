@@ -3,3 +3,4 @@
 *.sln
 */.vs
 API/AguiaTechBase.API/.vs
+*bin
