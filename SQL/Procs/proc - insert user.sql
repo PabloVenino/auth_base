@@ -1,4 +1,4 @@
-alter procedure proc_insert_normal_user_with_credentials
+alter procedure [proc_insert_user]
 	@user_login nvarchar(32),
 	@password nvarchar(64),
 
@@ -11,7 +11,7 @@ alter procedure proc_insert_normal_user_with_credentials
 
 /*
 
-	exec proc_insert_normal_user_with_credentials
+	exec [proc_insert_user]
 		@user_login = 'pablovenino3',
 		@password = '123',
 

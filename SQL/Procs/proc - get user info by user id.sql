@@ -1,5 +1,10 @@
 create procedure proc_get_user_by_id
-	@id integer not null
+	@id uniqueidentifier
+
+/*
+	exec proc_get_user_by_id
+		@id = ''
+*/
 
 as
 begin
