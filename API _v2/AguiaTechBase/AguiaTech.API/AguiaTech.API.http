@@ -1,0 +1,6 @@
+@AguiaTech.API_HostAddress = http://localhost:5095
+
+GET {{AguiaTech.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
