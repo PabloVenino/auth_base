@@ -1,33 +1,30 @@
-﻿using AguiaTech.Application.Services.Contracts;
+﻿using AguiaTech.Application.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace AguiaTech.API;
 
 [Route("v1/auth")]
 [ApiController]
-public class AuthController : ControllerBase
+public class AuthController(IMediator mediator) : ControllerBase
 {
-    private readonly IAuthService _authService;
-
-    public AuthController(IAuthService authService)
-    {
-        _authService = authService;
-    }
+    private readonly IMediator _mediator = mediator;
 
     [HttpPost]
-    public async Task<IActionResult> Login()
+    public async Task<IActionResult> Login([Required] string username, [Required] string password)
     {
         try
         {
-            var result = await _authService.Login();
+            var query = new UserData { Login = username, Password = password };
+            
+            await _mediator.Send(query);
 
-            if (result is not null)
-                return true ? Ok(result) : BadRequest(result);
-            else
-                return BadRequest("kk deu erro");
+            return Ok();
         }
         catch (Exception ex)
         {
+            _ = ex.Message;
             // TODO: Log exception;
             return StatusCode(500, "Infelizmente houve um erro inesperado, tente novamente mais tarde.");
         }
@@ -38,11 +35,11 @@ public class AuthController : ControllerBase
     {
         try
         {
-
-            return Ok();
+            return Ok(token);
         }
         catch (Exception ex)
         {
+            _ = ex.Message;
             // TODO: Log exception;
             return StatusCode(500, "Infelizmente houve um erro inesperado, tente novamente mais tarde.");
         }
