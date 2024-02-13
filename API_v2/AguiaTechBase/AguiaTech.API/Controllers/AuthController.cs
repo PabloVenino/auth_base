@@ -1,4 +1,4 @@
-﻿using AguiaTech.Application.Queries;
+﻿using AguiaTech.Application.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
@@ -16,7 +16,7 @@ public class AuthController(IMediator mediator) : ControllerBase
     {
         try
         {
-            var query = new UserData { Login = username, Password = password };
+            var query = new UserLoginCommand { Login = username, Password = password };
             
             await _mediator.Send(query);
 
