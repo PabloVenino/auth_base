@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AguiaTech.Application", "Ag
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AguiaTech.Infra", "AguiaTech.Infra\AguiaTech.Infra.csproj", "{792A1BE3-92BA-4642-A396-C43D50922B44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthBase.Core", "AuthBase.Core\AuthBase.Core.csproj", "{1EC8F118-BD4A-4AF5-B52B-4A2148D6147E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthBase.Core", "AuthBase.Core\AuthBase.Core.csproj", "{1EC8F118-BD4A-4AF5-B52B-4A2148D6147E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

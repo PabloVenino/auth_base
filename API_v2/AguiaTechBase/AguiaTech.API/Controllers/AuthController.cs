@@ -1,6 +1,7 @@
 ﻿using AguiaTech.Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace AguiaTech.API;
 
@@ -11,11 +12,11 @@ public class AuthController(IMediator mediator) : ControllerBase
     private readonly IMediator _mediator = mediator;
 
     [HttpPost]
-    public async Task<IActionResult> Login()
+    public async Task<IActionResult> Login([Required] string username, [Required] string password)
     {
         try
         {
-            var query = new UserData();
+            var query = new UserData { Login = username, Password = password };
             
             await _mediator.Send(query);
 
@@ -34,8 +35,7 @@ public class AuthController(IMediator mediator) : ControllerBase
     {
         try
         {
-
-            return Ok();
+            return Ok(token);
         }
         catch (Exception ex)
         {

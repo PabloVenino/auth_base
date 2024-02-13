@@ -8,7 +8,13 @@ using System.Threading.Tasks;
 
 namespace AguiaTech.Application.Queries;
 
-public record GetUserAuthCode : IRequest<List<string>>;
-public record DoLogin : IRequest;
-public record UserData : IRequest<List<UserModel>>;
 
+public record UserGetByIdQuery : IRequest<UserModel>
+{
+    public required Guid Id { get; init; }
+}
+
+public record UsersGetQuery : IRequest<List<UserModel>>
+{
+    public required Guid[] Id { get; init; }
+}
